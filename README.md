@@ -16,3 +16,4 @@ Check and remove observations with NA values as they are not useful for our anal
 ```
 data <- na.omit(data)
 ```
+
