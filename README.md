@@ -60,10 +60,19 @@ Similarly, we see a clear increase in e-commerce revenue from October-December. 
 We see the most highest revenue of sales coming on Wednesday of all days. In fact the beginning of the week (Mon-Wed) has the highest revenue of sales, and the weekend has the lowest revenue. This trend is the opposite of what I would have expected. Based on my own consumer habits, I would think people would be much more likely to online shop on the weekend.
 
 ![](/images/transactions%20per%20hour.jpeg)
+
 ![](/images/transactions_boxplot.jpeg)
 
 Looking closer, we see the most transactions occuring in the middle of the day, and slowly decreasing as the day goes on. I believe this is due to midday having the most shoppers being awake and alert.
 
 ## Regional Exploration
+
+Looking at the Top 6 countries by average revenue. We can begin to understand how region affects seasonality. For example, USA shows the most intense relative spike in revenue during the winter months due to the increase in spending for the winter holidays. This revenue spike is related to American culture, and the data backs it up. Similarly we see intense spikes in the UK and Australia, who both widely celebrate the winter holidays. 
+
+However, the Netherlands shows the highest average revenue of all countries in the winter months, however I believe this is because the dataset is focused on European E-Commerce. Its difficult to understand who the products are being marketed towards, and where the companies who make these products come from.
+
+
+![](images/topcountries_revenue.jpeg)
+
 ## RFM (Recency, Frequency, Monetary) Analysis
 ## Sales Forecast
