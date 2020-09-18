@@ -67,12 +67,12 @@ Looking closer, we see the most transactions occuring in the middle of the day, 
 
 ## Regional Exploration
 
-Looking at the Top 6 countries by average revenue. We can begin to understand how region affects seasonality. For example, USA shows the most intense relative spike in revenue during the winter months due to the increase in spending for the winter holidays. This revenue spike is related to American culture, and the data backs it up. Similarly we see intense spikes in the UK and Australia, who both widely celebrate the winter holidays. 
+Looking at the Top 6 countries by revenue. We can begin to understand how region affects seasonality. For example, USA shows the most intense relative spike in revenue during the winter months due to the increase in spending for the winter holidays. This revenue spike is related to American culture, and the data backs it up. Similarly we see intense spikes in the UK and Australia, who both widely celebrate the winter holidays. 
 
 However, the Netherlands shows the highest average revenue of all countries in the winter months, however I believe this is because the dataset is focused on European E-Commerce. Its difficult to understand who the products are being marketed towards, and where the companies who make these products come from.
 
 
 ![](images/topcountries_revenue.jpeg)
-
+> This graph shows smoothed regression lines for revenue. 
 ## RFM (Recency, Frequency, Monetary) Analysis
 ## Sales Forecast
