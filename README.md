@@ -59,9 +59,7 @@ Similarly, we see a clear increase in e-commerce revenue from October-December. 
 
 We see the most highest revenue of sales coming on Wednesday of all days. In fact the beginning of the week (Mon-Wed) has the highest revenue of sales, and the weekend has the lowest revenue. This trend is the opposite of what I would have expected. Based on my own consumer habits, I would think people would be much more likely to online shop on the weekend.
 
-![](/images/transactions%20per%20hour.jpeg)
-
-![](/images/transactions_boxplot.jpeg)
+![](/images/transactions%20per%20hour.jpeg) ![](/images/transactions_boxplot.jpeg)
 
 Looking closer, we see the most transactions occuring in the middle of the day, and slowly decreasing as the day goes on. I believe this is due to midday having the most shoppers being awake and alert.
 
@@ -121,5 +119,3 @@ I pulled this formula from a marketing website, it gives heavier weight to R_Sco
 RFM1 = RFM1 %>% mutate(RFM_Score = 100*R_Score + 10*F_Score+M_Score)
 
 ![](images/Customer%20Segmentation.jpeg)
-
-## Sales Forecast
