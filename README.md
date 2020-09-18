@@ -75,4 +75,48 @@ However, the Netherlands shows the highest average revenue of all countries in t
 ![](images/topcountries_revenue.jpeg)
 > This graph shows smoothed regression lines for revenue. 
 ## RFM (Recency, Frequency, Monetary) Analysis
+In order to better understand the customers for this dataset, we can use RFM analysis as a classificiation techinique. We can classify all unique customers into segments based on the recency of their last purchase, frequency of purchases, and average purchase value. Once we see who our customers are, we can then focus on customer retention and create personalized marketing campaigns to different segments of customers. 
+
+### Setup
+First we'll create our metrics for analysis:
+```
+RFM1 = data %>% 
+  group_by(CustomerID) %>% 
+  summarise(Recency =as.numeric(as.Date("2012-01-01")-max(Date)),
+            Frequency =n_distinct(InvoiceNo), Monetary = sum(TotalSale)/n_distinct(InvoiceNo)) 
+
+RFM1= RFM1 %>% filter (Monetary>0) #Exclude customers who havent spent money
+```
+
+Then we'll examine the quantiles to observe how our segments will be defined:
+```
+quantile(RFM1$Recency) #Check quantiles for subsetting
+quantile(RFM1$Frequency)#Check quantiles for subsetting
+quantile(RFM1$Monetary)#Check quantiles for subsetting
+summary(RFM1)
+```
+
+Then categorize unique clients based on quantile scores for each metric
+```
+#Categorize into quantiles
+RFM1$R_Score[RFM1$Recency>=23 & RFM1$Recency<39] = 1
+RFM1$R_Score[RFM1$Recency>=39& RFM1$Recency<72] = 2
+RFM1$R_Score[RFM1$Recency>=72 & RFM1$Recency<161] = 3
+RFM1$R_Score[RFM1$Recency>=161 & RFM1$Recency<=396] = 4
+
+RFM1$F_Score[RFM1$Frequency<=1] = 1
+RFM1$F_Score[RFM1$Frequency>=2 & RFM1$Frequency<=3] = 2
+RFM1$F_Score[RFM1$Frequency>=4 & RFM1$Frequency<=5] = 3
+RFM1$F_Score[RFM1$Frequency>5] = 4
+
+RFM1$M_Score[RFM1$Monetary< 153] = 1
+RFM1$M_Score[RFM1$Monetary>=153 & RFM1$Monetary<237] = 2
+RFM1$M_Score[RFM1$Monetary>=237 & RFM1$Monetary<371 ] = 3
+RFM1$M_Score[RFM1$Monetary>=371] = 4
+```
+I pulled this formula from a marketing website, it gives heavier weight to R_Score, so this RFM analyis is mostly focused on developing marketing for segements based on recency of client purchases:
+RFM1 = RFM1 %>% mutate(RFM_Score = 100*R_Score + 10*F_Score+M_Score)
+
+![](images/Customer%20Segmentation.jpeg)
+
 ## Sales Forecast
