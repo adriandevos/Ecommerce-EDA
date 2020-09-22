@@ -1,7 +1,7 @@
 # Ecommerce-EDA
 An exploratory data analysis of E-Commerce data provided graciously by the UCI Machine Learning Repository
 
-Load required libraries and load data
+Load required libraries and load data:
 ```
 library(readr)
 library(dplyr)
@@ -12,15 +12,16 @@ library(lubridate)
 data<-read.csv("ecomm.csv")
 ```
 ```
-data <- na.omit(data)
+data <- na.omit(data) #omit all obervations with NA values
 dim(data)
 ```
 
 > [1] [406829]      [8]
+
 Check and remove observations with NA values as they are not useful for our analysis. Were left with:
 
-405829 Observations
-8 Columns
+**405829 Observations**
+**8 Columns**
 
 ## Data cleanup
 We first need to reformat and reorganize some columns. We'll use the InvoiceDate column to generate extradate/time related data for analysis
@@ -116,6 +117,10 @@ RFM1$M_Score[RFM1$Monetary>=237 & RFM1$Monetary<371 ] = 3
 RFM1$M_Score[RFM1$Monetary>=371] = 4
 ```
 I pulled this formula from a marketing website, it gives heavier weight to R_Score, so this RFM analyis is mostly focused on developing marketing for segements based on recency of client purchases:
-RFM1 = RFM1 %>% mutate(RFM_Score = 100*R_Score + 10*F_Score+M_Score)
+
+> RFM_Score = 100*R_Score + 10*F_Score + M_Score
 
 ![](images/Customer%20Segmentation.jpeg)
+
+### Summary
+The RFM formula has revealed that the largest segment of client is 'Potential Loyalist', while 'Recent Customers' are the smallest segment. If I was the retailer who owns this dataset, I would gather the clients who fall in the segments who are on the brink of falling into 'Hibernation, and then develop specific marketing strategies to better retain these clients.
